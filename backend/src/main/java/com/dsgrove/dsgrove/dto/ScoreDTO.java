@@ -1,6 +1,5 @@
 package com.dsgrove.dsgrove.dto;
 
-import javax.swing.*;
 
 public class ScoreDTO {
  private Long movieId;

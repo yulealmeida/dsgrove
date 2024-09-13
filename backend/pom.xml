@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.spiderman</groupId>
-	<artifactId>dsmovie</artifactId>
+	<artifactId>dsgrove</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dsmovie</name>
+	<name>dsgrove</name>
 	<description>Projeto criado na semana Spring React</description>
 	<url/>
 	<licenses>
