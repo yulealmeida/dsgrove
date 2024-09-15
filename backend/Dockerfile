@@ -15,6 +15,8 @@ RUN mvn clean package
 
 FROM openjdk:17-jdk-slim
 
+WORKDIR /app
+
 
 # Copie o jar do estágio de construção anterior
 COPY --from=build /app/target/dsgrove-0.0.1-SNAPSHOT.jar /app/dsgrove.jar
