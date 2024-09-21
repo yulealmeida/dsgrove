@@ -1,5 +1,6 @@
 package com.dsgrove.dsgrove.services;
 
+import com.dsgrove.dsgrove.clients.TMDBClient;
 import com.dsgrove.dsgrove.dto.MovieDTO;
 import com.dsgrove.dsgrove.entities.Movie;
 import com.dsgrove.dsgrove.exceptions.CustomException;
@@ -18,6 +19,9 @@ public class MovieService {
 
     @Autowired
     private MovieRepository repository;
+
+    @Autowired
+    private TMDBClient client;
 
     @Transactional(readOnly = true)
     public Page<MovieDTO> findAll(Pageable pageable){
