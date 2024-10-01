@@ -1,7 +1,7 @@
 package com.dsgrove.dsgrove.clients;
 
 import com.dsgrove.dsgrove.clients.responses.MovieResponse;
-import com.dsgrove.dsgrove.clients.responses.SearchMovie;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +21,18 @@ public class TMDBClient {
             .method("GET", HttpRequest.BodyPublishers.noBody())
             .build();
 
-    HttpRequest searchmovie = HttpRequest.newBuilder()
+    HttpRequest moviesearch = HttpRequest.newBuilder()
             .uri(URI.create("https://api.themoviedb.org/3/search/movie?query=va%20e%20veja&include_adult=false&language=pt-BR&page=1"))
             .header("accept", "application/json")
             .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OTQ5ZjBiMzkyZjJiMTc2Yzc4YWM4ZTM1ZTQyNTJiMyIsIm5iZiI6MTcyNjg3Mzk3NC4xMzk1MTEsInN1YiI6IjY2ZWNhNzg1MTllNmYyN2YwNTQ2ZDU5YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jZfYoHy9o0RGkXD2RfI034bORzv5_U5-CJ2LOVDEm5s")
             .method("GET", HttpRequest.BodyPublishers.noBody())
             .build();
+
+
+
+
+
+
 
 
 
@@ -40,11 +46,14 @@ public class TMDBClient {
 
     }
     public MovieResponse searchMovies() throws IOException, InterruptedException {
-        HttpResponse<String> response = HttpClient.newHttpClient().send(searchmovie ,HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = HttpClient.newHttpClient().send(moviesearch, HttpResponse.BodyHandlers.ofString());
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(response.body(), MovieResponse.class);
 
     }
+
+
+
 
 
 
