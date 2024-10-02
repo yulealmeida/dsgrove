@@ -1,6 +1,6 @@
 package com.dsgrove.dsgrove.services;
 
-import com.dsgrove.dsgrove.clients.TMDBClient;
+import com.dsgrove.dsgrove.clients.TMDBHttpClient;
 import com.dsgrove.dsgrove.dto.MovieDTO;
 import com.dsgrove.dsgrove.entities.Movie;
 import com.dsgrove.dsgrove.exceptions.CustomException;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.List;
 
 @Service
 public class MovieService {
@@ -21,7 +20,7 @@ public class MovieService {
     private MovieRepository repository;
 
     @Autowired
-    private TMDBClient client;
+    private TMDBHttpClient client;
 
     @Transactional(readOnly = true)
     public Page<MovieDTO> findAll(Pageable pageable){
